@@ -1,0 +1,19 @@
+apply plugin: 'kotlin'
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+
+dependencies {
+    implementation project(':domain')
+
+    implementation Libraries.javaxAnnotation
+    implementation Libraries.javaxInject
+    implementation Libraries.rxKotlin
+    implementation Libraries.kotlin
+
+    testImplementation TestLibraries.jUnit
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.assertJ
+
+}

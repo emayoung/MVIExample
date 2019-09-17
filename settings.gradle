@@ -1,0 +1,2 @@
+include ':app', ':domain', ':data', ':presentation', ':mobile-ui'
+rootProject.name='MVIExample'
