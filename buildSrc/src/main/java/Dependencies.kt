@@ -15,6 +15,7 @@ import Versions.okHttpProfilingVersion
 import Versions.okHttpVersion
 import Versions.retrofitVersion
 import Versions.roboelectricVersion
+import Versions.roomVersion
 import Versions.rxKotlinVersion
 import Versions.rxandroidVersion
 import Versions.timberVersion
@@ -37,6 +38,7 @@ object Versions {
     val mockitoKotlinVersion = "2.2.0"
     val assertJVersion = "3.8.0"
     val lifecycleVersion = "2.1.0"
+    val roomVersion = "2.2.0-rc01"
     val roboelectricVersion = "4.3"
     val okHttpVersion = "4.2.0"
     val retrofitVersion = "2.4.0"
@@ -57,6 +59,13 @@ object Libraries {
     val rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
+    //room
+    val roomRunTime = "androidx.room:room-runtime:$roomVersion"
+    val roomCompiler = "androidx.room:room-compiler:$roomVersion"
+    val roomExtensionAndCoroutine = "androidx.room:room-ktx:$roomVersion"
+    val roomRxJava = "androidx.room:room-rxjava2:$roomVersion"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    val roomGuava =  "androidx.room:room-guava:$roomVersion"
 
     //lifecycle libraries
     val lifecyleRuntime = "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
@@ -103,4 +112,5 @@ object TestLibraries {
     val assertJ = "org.assertj:assertj-core:$assertJVersion"
     val roboelectric = "org.robolectric:robolectric:$roboelectricVersion"
     val lifecycleTest = "androidx.arch.core:core-testing:$lifecycleVersion"
+    val roomTest = "androidx.room:room-testing:$roomVersion"
 }

@@ -1,13 +1,13 @@
-package com.threedee.cache.implementation
+package org.buffer.android.boilerplate.cache
 
-import com.threedee.cache.PreferencesHelper
-import com.threedee.cache.db.BufferoosDatabase
-import com.threedee.cache.mapper.BufferooEntityMapper
-import com.threedee.data.model.BufferooEntity
-import com.threedee.data.repository.BufferooCache
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
+import org.buffer.android.boilerplate.cache.db.BufferoosDatabase
+import org.buffer.android.boilerplate.cache.mapper.BufferooEntityMapper
+import org.buffer.android.boilerplate.cache.model.CachedBufferoo
+import org.buffer.android.boilerplate.data.model.BufferooEntity
+import org.buffer.android.boilerplate.data.repository.BufferooCache
 import javax.inject.Inject
 
 /**
@@ -15,11 +15,10 @@ import javax.inject.Inject
  * [BufferooCache] from the Data layer as it is that layers responsibility for defining the
  * operations in which data store implementation layers can carry out.
  */
-class BufferooCacheImpl  @Inject constructor(val bufferoosDatabase: BufferoosDatabase,
-    private val entityMapper: BufferooEntityMapper,
-    private val preferencesHelper: PreferencesHelper
-) :
-    BufferooCache {
+class BufferooCacheImpl @Inject constructor(val bufferoosDatabase: BufferoosDatabase,
+                                            private val entityMapper: BufferooEntityMapper,
+                                            private val preferencesHelper: PreferencesHelper) :
+        BufferooCache {
 
     private val EXPIRATION_TIME = (60 * 10 * 1000).toLong()
 
@@ -47,7 +46,7 @@ class BufferooCacheImpl  @Inject constructor(val bufferoosDatabase: BufferoosDat
         return Completable.defer {
             bufferoos.forEach {
                 bufferoosDatabase.cachedBufferooDao().insertBufferoo(
-                    entityMapper.mapToCached(it))
+                        entityMapper.mapToCached(it))
             }
             Completable.complete()
         }
