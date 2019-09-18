@@ -1,0 +1,24 @@
+apply plugin: 'kotlin'
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':data')
+
+    implementation Libraries.javaxAnnotation
+    implementation Libraries.kotlin
+    implementation Libraries.javaxInject
+    implementation Libraries.rxKotlin
+    implementation Libraries.gson
+    implementation Libraries.okHttp
+    implementation Libraries.loggingInterceptor
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitConverter
+    implementation Libraries.retrofitAdapter
+
+    testImplementation TestLibraries.jUnit
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.assertJ
+}

@@ -66,8 +66,9 @@ configurations.all {
 dependencies {
     implementation project(':presentation')
     implementation project(':data')
-//    implementation project(':cache')
-//    implementation project(':remote')
+    implementation project(':domain')
+    implementation project(':cache')
+    implementation project(':remote')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -131,5 +132,6 @@ dependencies {
 
     kaptTest Libraries.daggerCompiler
     kaptAndroidTest Libraries.daggerCompiler
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 }

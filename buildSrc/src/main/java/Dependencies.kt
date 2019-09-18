@@ -12,6 +12,7 @@ import Versions.loggingInterceptorVersion
 import Versions.mockitoKotlinVersion
 import Versions.moshiVersion
 import Versions.okHttpProfilingVersion
+import Versions.okHttpVersion
 import Versions.retrofitVersion
 import Versions.roboelectricVersion
 import Versions.rxKotlinVersion
@@ -37,6 +38,7 @@ object Versions {
     val assertJVersion = "3.8.0"
     val lifecycleVersion = "2.1.0"
     val roboelectricVersion = "4.3"
+    val okHttpVersion = "4.2.0"
     val retrofitVersion = "2.4.0"
     val loggingInterceptorVersion = "3.10.0"
     val okHttpProfilingVersion = "1.0.4"
@@ -67,7 +69,11 @@ object Libraries {
     //networking
     val moshi = "com.squareup.moshi:moshi:$moshiVersion"
     val gson = "com.google.code.gson:gson:$gsonVersion"
+    val okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+
     val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    val retrofitConverter =  "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    val retrofitAdapter =    "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     val rxjavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     val moshiConverter = "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"

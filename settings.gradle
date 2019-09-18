@@ -1,2 +1,2 @@
-include ':app', ':domain', ':data', ':presentation', ':mobile-ui'
+include ':app', ':domain', ':data', ':presentation', ':mobile-ui', ':cache', ':remote'
 rootProject.name='MVIExample'
