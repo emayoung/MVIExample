@@ -6,29 +6,34 @@ import com.threedee.presentation.base.model.TaskStatus
 
 sealed class BrowseResult : BaseResult {
 
-    class LoadBufferoosTask(
-        val taskStatus: TaskStatus,
-        val data: List<Bufferoo>? = null
-    ) : BrowseResult() {
-        companion object {
+//    class LoadBufferoosTask(
+//        val taskStatus: TaskStatus,
+//        val data: List<Bufferoo>? = null
+//    ) : BrowseResult() {
+//        companion object {
+//
+//            internal fun success(data: List<Bufferoo>?): LoadBufferoosTask {
+//                return LoadBufferoosTask(
+//                    TaskStatus.SUCCESS,
+//                    data
+//                )
+//            }
+//
+//            internal fun failure(): LoadBufferoosTask {
+//                return LoadBufferoosTask(
+//                    TaskStatus.FAILURE,
+//                    null
+//                )
+//            }
+//
+//            internal fun inFlight(): LoadBufferoosTask {
+//                return LoadBufferoosTask(TaskStatus.IN_FLIGHT)
+//            }
+//        }
+//    }
 
-            internal fun success(data: List<Bufferoo>?): LoadBufferoosTask {
-                return LoadBufferoosTask(
-                    TaskStatus.SUCCESS,
-                    data
-                )
-            }
-
-            internal fun failure(): LoadBufferoosTask {
-                return LoadBufferoosTask(
-                    TaskStatus.FAILURE,
-                    null
-                )
-            }
-
-            internal fun inFlight(): LoadBufferoosTask {
-                return LoadBufferoosTask(TaskStatus.IN_FLIGHT)
-            }
-        }
-    }
+    object Idle: BrowseResult()
+    object Loading : BrowseResult()
+    data class Error(val errorMessage: String) : BrowseResult()
+    data class Success(val data: List<Bufferoo>) : BrowseResult()
 }

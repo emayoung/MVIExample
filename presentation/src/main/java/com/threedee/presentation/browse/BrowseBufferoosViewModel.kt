@@ -25,17 +25,22 @@ class BrowseBufferoosViewModel @Inject internal constructor(
                 )
             }
         }
+
     private val reducer: BiFunction<BrowseViewState, BrowseResult, BrowseViewState> =
         BiFunction<BrowseViewState, BrowseResult, BrowseViewState> { previousState, result ->
             when (result) {
-                is BrowseResult.LoadBufferoosTask -> {
-                    when {
-                        result.taskStatus == TaskStatus.SUCCESS -> BrowseViewState.Success(
-                            result.data?.map { bufferooMapper.mapToView(it) })
-                        result.taskStatus == TaskStatus.FAILURE -> BrowseViewState.Failed
-                        result.taskStatus == TaskStatus.IN_FLIGHT -> BrowseViewState.InProgress
-                        else -> BrowseViewState.Idle()
-                    }
+                BrowseResult.Loading -> {
+                    BrowseViewState.InProgress
+                }
+                is BrowseResult.Error -> {
+                    BrowseViewState.Failed
+                }
+                is BrowseResult.Success -> {
+                    BrowseViewState.Success(
+                        result.data?.map { bufferooMapper.mapToView(it) })
+                }
+                is BrowseResult.Idle -> {
+                    BrowseViewState.Idle()
                 }
             }
         }

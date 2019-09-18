@@ -12,13 +12,13 @@ class BrowseProcessor @Inject constructor(private val getBufferoos: GetBufferoos
             it.switchMap {
                 getBufferoos.execute()
                     .map {
-                        BrowseResult.LoadBufferoosTask.success(it)
+                        BrowseResult.Success(it) as BrowseResult
                     }
                     .onErrorReturn {
-                        BrowseResult.LoadBufferoosTask.failure()
+                        BrowseResult.Error(it.localizedMessage)
                     }
                     .toObservable()
-                    .startWith(BrowseResult.LoadBufferoosTask.inFlight())
+                    .startWith(BrowseResult.Loading)
             }
         }
 
