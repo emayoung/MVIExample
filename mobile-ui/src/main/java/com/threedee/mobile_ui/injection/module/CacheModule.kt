@@ -1,6 +1,8 @@
 package com.threedee.mobile_ui.injection.module
 
 import android.app.Application
+import androidx.room.Room
+import com.threedee.cache.db.BufferoosDatabase
 import com.threedee.cache.implementation.BufferooCacheImpl
 import com.threedee.data.repository.BufferooCache
 import dagger.Binds
@@ -20,14 +22,14 @@ abstract class CacheModule {
     @Module
     companion object {
 
-//        @Provides
-//        @JvmStatic
-//        fun provideBufferoosDatabase(application: Application): BufferoosDatabase {
-//            return Room.databaseBuilder(
-//                    application.applicationContext,
-//                    BufferoosDatabase::class.java, "bufferoos.db")
-//                    .build()
-//        }
+        @Provides
+        @JvmStatic
+        fun provideBufferoosDatabase(application: Application): BufferoosDatabase {
+            return Room.databaseBuilder(
+                    application.applicationContext,
+                    BufferoosDatabase::class.java, "bufferoos.db")
+                    .build()
+        }
     }
 
     @Binds

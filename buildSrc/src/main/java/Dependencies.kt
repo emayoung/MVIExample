@@ -1,4 +1,6 @@
+import Versions.appCompatVersion
 import Versions.assertJVersion
+import Versions.constraintLayoutVersion
 import Versions.daggerVersion
 import Versions.glassfishAnnotationVersion
 import Versions.glideVersion
@@ -6,13 +8,16 @@ import Versions.gsonVersion
 import Versions.jUnitVersion
 import Versions.javaxAnnotationVersion
 import Versions.javaxInjectVersion
+import Versions.kotlinExtensionVersion
 import Versions.kotlinVersion
 import Versions.lifecycleVersion
 import Versions.loggingInterceptorVersion
 import Versions.mockitoKotlinVersion
 import Versions.moshiVersion
+import Versions.navVersion
 import Versions.okHttpProfilingVersion
 import Versions.okHttpVersion
+import Versions.recyclerViewVersion
 import Versions.retrofitVersion
 import Versions.roboelectricVersion
 import Versions.roomVersion
@@ -51,11 +56,29 @@ object Versions {
     val timberVersion = "4.7.0"
     val rxandroidVersion = "2.1.1"
     val glassfishAnnotationVersion = "10.0-b28"
+    val navVersion = "2.1.0"
+    val recyclerViewVersion = "1.0.0"
+    val appCompatVersion = "1.1.0"
+    val kotlinExtensionVersion = "1.1.0"
+    val constraintLayoutVersion = "1.1.3"
 }
 
 object Libraries {
+    //android
+    val recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    val appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
+    val kotlinExtensions = "androidx.core:core-ktx:$kotlinExtensionVersion"
+    val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    //navigation
+    val navFragment = "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    val navKtx = "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+    //annotation
     val javaxAnnotation = "javax.annotation:jsr250-api:$javaxAnnotationVersion"
     val javaxInject = "javax.inject:javax.inject:$javaxInjectVersion"
+
+    //rxJava
     val rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 

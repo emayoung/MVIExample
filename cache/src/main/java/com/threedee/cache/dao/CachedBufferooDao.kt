@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.threedee.cache.db.constants.BufferooConstants
 import com.threedee.cache.model.CachedBufferoo
-import org.buffer.android.boilerplate.cache.db.constants.BufferooConstants
 
 @Dao
 abstract class CachedBufferooDao {

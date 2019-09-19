@@ -88,6 +88,7 @@ dependencies {
     implementation Libraries.daggerSupport
 
     implementation Libraries.lifecyleRuntime
+    implementation Libraries.roomRunTime
     implementation Libraries.lifecycleExtensions
     implementation Libraries.lifecycleRxStreams
     kapt Libraries.lifecycleCompiler

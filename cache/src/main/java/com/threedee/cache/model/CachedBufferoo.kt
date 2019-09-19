@@ -2,7 +2,7 @@ package  com.threedee.cache.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.buffer.android.boilerplate.cache.db.constants.BufferooConstants
+import com.threedee.cache.db.constants.BufferooConstants
 
 /**
  * Model used solely for the caching of a bufferroo
