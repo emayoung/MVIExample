@@ -14,6 +14,8 @@ import com.threedee.presentation.browse.BrowseBufferoosViewModel
 import com.threedee.presentation.browse.BrowseIntent
 import com.threedee.presentation.browse.BrowseViewState
 import com.threedee.presentation.browse.model.BufferooView
+import com.threedee.presentation.user.UserIntent
+import com.threedee.presentation.user.UserViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
@@ -44,8 +46,10 @@ class MainActivity : DaggerAppCompatActivity() ,
         browseBufferoosViewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(BrowseBufferoosViewModel::class.java)
 
+
         setupBrowseRecycler()
         setupViewListeners()
+
 
         compositeDisposable.add(browseBufferoosViewModel.states().subscribe({ render(it) }))
         browseBufferoosViewModel.processIntents(intents())

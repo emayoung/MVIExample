@@ -4,7 +4,8 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.threedee.data.model.BufferooEntity
-import com.threedee.data.repository.BufferooCache
+import com.threedee.data.repository.buffer.BufferooCache
+import com.threedee.data.source.buffer.BufferooCacheDataStore
 import com.threedee.data.test.factory.BufferooFactory
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -23,7 +24,8 @@ class BufferooCacheDataStoreTest {
     @Before
     fun setUp() {
         bufferooCache = mock()
-        bufferooCacheDataStore = BufferooCacheDataStore(bufferooCache)
+        bufferooCacheDataStore =
+            BufferooCacheDataStore(bufferooCache)
     }
 
     //<editor-fold desc="Clear Bufferoos">

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.threedee.mobile_ui.injection.ViewModelFactory
 import com.threedee.presentation.browse.BrowseBufferoosViewModel
+import com.threedee.presentation.user.UserViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -28,6 +29,11 @@ abstract class PresentationModule {
     @IntoMap
     @ViewModelKey(BrowseBufferoosViewModel::class)
     abstract fun bindBrowseBufferoosViewModel(viewModel: BrowseBufferoosViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(UserViewModel::class)
+    abstract fun bindUserViewModel(viewModel: UserViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

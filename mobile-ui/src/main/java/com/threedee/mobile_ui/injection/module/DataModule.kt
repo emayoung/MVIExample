@@ -2,8 +2,10 @@ package com.threedee.mobile_ui.injection.module
 
 import com.threedee.data.executors.JobExecutor
 import com.threedee.data.implementation.BufferooDataRepository
+import com.threedee.data.implementation.UserDataRepository
 import com.threedee.domain.executor.ThreadExecutor
 import com.threedee.domain.repository.BufferooRepository
+import com.threedee.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
 
@@ -13,6 +15,10 @@ abstract class DataModule {
     @Binds
     abstract fun bindBufferooRepository(bufferooDataRepository: BufferooDataRepository):
         BufferooRepository
+
+    @Binds
+    abstract fun bindUserRepository(userDataRepository: UserDataRepository):
+        UserRepository
 
     @Binds
     abstract fun bindThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor

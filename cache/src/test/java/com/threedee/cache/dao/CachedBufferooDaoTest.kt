@@ -1,7 +1,7 @@
 package com.threedee.cache.dao
 
 import androidx.room.Room
-import com.threedee.cache.db.BufferoosDatabase
+import com.threedee.cache.db.ThreeDatabase
 import com.threedee.cache.test.factory.BufferooFactory
 import org.junit.After
 import org.junit.Before
@@ -13,13 +13,13 @@ import org.robolectric.RuntimeEnvironment
 @RunWith(RobolectricTestRunner::class)
 open class CachedBufferooDaoTest {
 
-    private lateinit var bufferoosDatabase: BufferoosDatabase
+    private lateinit var bufferoosDatabase: ThreeDatabase
 
     @Before
     fun initDb() {
         bufferoosDatabase = Room.inMemoryDatabaseBuilder(
                 RuntimeEnvironment.application.baseContext,
-                BufferoosDatabase::class.java)
+                ThreeDatabase::class.java)
                 .allowMainThreadQueries()
                 .build()
     }

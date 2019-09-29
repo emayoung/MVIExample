@@ -2,6 +2,9 @@ import Versions.appCompatVersion
 import Versions.assertJVersion
 import Versions.constraintLayoutVersion
 import Versions.daggerVersion
+import Versions.firebaseAnalyticsVersion
+import Versions.firebaseAuthVersion
+import Versions.firestoreVersion
 import Versions.glassfishAnnotationVersion
 import Versions.glideVersion
 import Versions.gsonVersion
@@ -61,6 +64,9 @@ object Versions {
     val appCompatVersion = "1.1.0"
     val kotlinExtensionVersion = "1.1.0"
     val constraintLayoutVersion = "1.1.3"
+    val firestoreVersion = "21.1.1"
+    val firebaseAuthVersion = "19.1.0"
+    val firebaseAnalyticsVersion = "17.2.0"
 }
 
 object Libraries {
@@ -125,6 +131,12 @@ object Libraries {
 
     //others
     val glassfishAnnotation = "org.glassfish:javax.annotation:$glassfishAnnotationVersion"
+
+    //firebase
+    val firebaseAnalytics = "com.google.firebase:firebase-analytics:$firebaseAnalyticsVersion"
+    val firebaseAuth = "com.google.firebase:firebase-auth:$firebaseAuthVersion"
+    val firebaseFireStore = "com.google.firebase:firebase-firestore:$firestoreVersion"
+    val firebaseFireStoreKtx = "com.google.firebase:firebase-firestore-ktx:$firestoreVersion"
 
 }
 

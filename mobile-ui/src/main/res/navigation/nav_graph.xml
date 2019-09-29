@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashActivity">
+
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.threedee.mobile_ui.ui.splash.SplashActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/onboardingActivity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </activity>
+    <activity
+        android:id="@+id/onboardingActivity"
+        android:name="com.threedee.mobile_ui.ui.onboarding.OnboardingActivity"
+        android:label="OnboardingActivity"
+        tools:layout="@layout/activity_onboarding"
+        />
+
+
+</navigation>

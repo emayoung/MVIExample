@@ -1,10 +1,10 @@
 package com.threedee.cache.implementation
 
 import com.threedee.cache.PreferencesHelper
-import com.threedee.cache.db.BufferoosDatabase
+import com.threedee.cache.db.ThreeDatabase
 import com.threedee.cache.mapper.BufferooEntityMapper
 import com.threedee.data.model.BufferooEntity
-import com.threedee.data.repository.BufferooCache
+import com.threedee.data.repository.buffer.BufferooCache
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
@@ -15,7 +15,7 @@ import javax.inject.Inject
  * [BufferooCache] from the Data layer as it is that layers responsibility for defining the
  * operations in which data store implementation layers can carry out.
  */
-class BufferooCacheImpl  @Inject constructor(val bufferoosDatabase: BufferoosDatabase,
+class BufferooCacheImpl  @Inject constructor(val bufferoosDatabase: ThreeDatabase,
     private val entityMapper: BufferooEntityMapper,
     private val preferencesHelper: PreferencesHelper
 ) :
@@ -26,7 +26,7 @@ class BufferooCacheImpl  @Inject constructor(val bufferoosDatabase: BufferoosDat
     /**
      * Retrieve an instance from the database, used for tests.
      */
-    internal fun getDatabase(): BufferoosDatabase {
+    internal fun getDatabase(): ThreeDatabase {
         return bufferoosDatabase
     }
 

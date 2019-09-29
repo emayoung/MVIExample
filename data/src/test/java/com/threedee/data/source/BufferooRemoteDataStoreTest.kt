@@ -3,7 +3,8 @@ package com.threedee.data.source
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.threedee.data.model.BufferooEntity
-import com.threedee.data.repository.BufferooRemote
+import com.threedee.data.repository.buffer.BufferooRemote
+import com.threedee.data.source.buffer.BufferooRemoteDataStore
 import com.threedee.data.test.factory.BufferooFactory
 import io.reactivex.Flowable
 import org.junit.Before
@@ -21,7 +22,8 @@ class BufferooRemoteDataStoreTest {
     @Before
     fun setUp() {
         bufferooRemote = mock()
-        bufferooRemoteDataStore = BufferooRemoteDataStore(bufferooRemote)
+        bufferooRemoteDataStore =
+            BufferooRemoteDataStore(bufferooRemote)
     }
 
     //<editor-fold desc="Clear Bufferoos">

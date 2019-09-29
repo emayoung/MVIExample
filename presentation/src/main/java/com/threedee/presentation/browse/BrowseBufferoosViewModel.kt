@@ -28,6 +28,7 @@ class BrowseBufferoosViewModel @Inject internal constructor(
 
     private val reducer: BiFunction<BrowseViewState, BrowseResult, BrowseViewState> =
         BiFunction<BrowseViewState, BrowseResult, BrowseViewState> { previousState, result ->
+            println("previous state:$previousState, result: $result")
             when (result) {
                 BrowseResult.Loading -> {
                     BrowseViewState.InProgress
@@ -58,7 +59,7 @@ class BrowseBufferoosViewModel @Inject internal constructor(
         return intentsSubject
             .compose(intentFilter)
             .map { this.actionFromIntent(it) }
-            .compose(browseProcessor.actionProcessor)
+            .compose(browseProcessor)
             .scan<BrowseViewState>(BrowseViewState.Idle(), reducer)
             .replay(1)
             .autoConnect(0)

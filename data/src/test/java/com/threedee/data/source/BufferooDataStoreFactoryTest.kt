@@ -2,7 +2,10 @@ package com.threedee.data.source
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.threedee.data.repository.BufferooCache
+import com.threedee.data.repository.buffer.BufferooCache
+import com.threedee.data.source.buffer.BufferooCacheDataStore
+import com.threedee.data.source.buffer.BufferooDataStoreFactory
+import com.threedee.data.source.buffer.BufferooRemoteDataStore
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test

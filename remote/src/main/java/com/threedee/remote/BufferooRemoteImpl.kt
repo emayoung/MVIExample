@@ -1,7 +1,7 @@
 package com.threedee.remote
 
 import com.threedee.data.model.BufferooEntity
-import com.threedee.data.repository.BufferooRemote
+import com.threedee.data.repository.buffer.BufferooRemote
 import com.threedee.remote.mapper.BufferooEntityMapper
 import io.reactivex.Flowable
 import javax.inject.Inject

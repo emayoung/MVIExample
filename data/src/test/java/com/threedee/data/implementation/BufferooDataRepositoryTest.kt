@@ -7,10 +7,10 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.threedee.data.mapper.BufferooMapper
 import com.threedee.data.model.BufferooEntity
-import com.threedee.data.repository.BufferooDataStore
-import com.threedee.data.source.BufferooCacheDataStore
-import com.threedee.data.source.BufferooDataStoreFactory
-import com.threedee.data.source.BufferooRemoteDataStore
+import com.threedee.data.repository.buffer.BufferooDataStore
+import com.threedee.data.source.buffer.BufferooCacheDataStore
+import com.threedee.data.source.buffer.BufferooDataStoreFactory
+import com.threedee.data.source.buffer.BufferooRemoteDataStore
 import com.threedee.data.test.factory.BufferooFactory
 import com.threedee.domain.model.Bufferoo
 import io.reactivex.Completable

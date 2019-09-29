@@ -1,7 +1,7 @@
 package com.threedee.cache
 
 import androidx.room.Room
-import com.threedee.cache.db.BufferoosDatabase
+import com.threedee.cache.db.ThreeDatabase
 import com.threedee.cache.implementation.BufferooCacheImpl
 import com.threedee.cache.mapper.BufferooEntityMapper
 import com.threedee.cache.model.CachedBufferoo
@@ -19,7 +19,7 @@ class BufferooCacheImplTest {
 
     private var bufferoosDatabase = Room.inMemoryDatabaseBuilder(
         RuntimeEnvironment.application,
-        BufferoosDatabase::class.java
+        ThreeDatabase::class.java
     ).allowMainThreadQueries().build()
     private var entityMapper = BufferooEntityMapper()
     private var preferencesHelper = PreferencesHelper(RuntimeEnvironment.application)

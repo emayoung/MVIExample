@@ -2,7 +2,7 @@ package com.threedee.data.implementation
 
 import com.threedee.data.mapper.BufferooMapper
 import com.threedee.data.model.BufferooEntity
-import com.threedee.data.source.BufferooDataStoreFactory
+import com.threedee.data.source.buffer.BufferooDataStoreFactory
 import com.threedee.domain.model.Bufferoo
 import com.threedee.domain.repository.BufferooRepository
 import io.reactivex.Completable

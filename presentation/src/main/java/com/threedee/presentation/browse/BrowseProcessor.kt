@@ -1,13 +1,19 @@
 package com.threedee.presentation.browse
 
 import com.threedee.domain.interactor.browse.GetBufferoos
+import com.threedee.presentation.base.BaseActionProcessor
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import javax.inject.Inject
 
-class BrowseProcessor @Inject constructor(private val getBufferoos: GetBufferoos) {
+class BrowseProcessor @Inject constructor(private val getBufferoos: GetBufferoos) :
+    BaseActionProcessor<BrowseAction, BrowseResult>() {
 
-    private val getBufferoosProcessor: ObservableTransformer<BrowseAction.LoadBufferoosAction, BrowseResult> =
+    override fun getActionProcessors(shared: Observable<BrowseAction>): List<Observable<BrowseResult>> {
+        return listOf(shared.connect(getBufferoosProcessor))
+    }
+
+    val getBufferoosProcessor: ObservableTransformer<BrowseAction.LoadBufferoosAction, BrowseResult> =
         ObservableTransformer {
             it.switchMap {
                 getBufferoos.execute()
@@ -22,20 +28,20 @@ class BrowseProcessor @Inject constructor(private val getBufferoos: GetBufferoos
             }
         }
 
-    var actionProcessor: ObservableTransformer<BrowseAction, BrowseResult>
-
-    init {
-        actionProcessor = ObservableTransformer {
-            it.publish {
-                it.ofType(BrowseAction.LoadBufferoosAction::class.java)
-                    .compose(getBufferoosProcessor)
-                    .mergeWith(it.filter { it !is BrowseAction.LoadBufferoosAction }
-                        .flatMap {
-                            Observable.error<BrowseResult>(
-                                IllegalArgumentException("Unknown Action type")
-                            )
-                        })
-            }
-        }
-    }
+//    var actionProcessor: ObservableTransformer<BrowseAction, BrowseResult>
+//
+//    init {
+//        actionProcessor = ObservableTransformer {
+//            it.publish {
+//                it.ofType(BrowseAction.LoadBufferoosAction::class.java)
+//                    .compose(getBufferoosProcessor)
+//                    .mergeWith(it.filter { it !is BrowseAction.LoadBufferoosAction }
+//                        .flatMap {
+//                            Observable.error<BrowseResult>(
+//                                IllegalArgumentException("Unknown Action type")
+//                            )
+//                        })
+//            }
+//        }
+//    }
 }

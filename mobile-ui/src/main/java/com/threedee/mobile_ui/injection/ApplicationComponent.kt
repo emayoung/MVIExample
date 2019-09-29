@@ -1,7 +1,7 @@
 package com.threedee.mobile_ui.injection
 
 import android.app.Application
-import com.threedee.mobile_ui.BufferoosApplication
+import com.threedee.mobile_ui.ThreeApplication
 import com.threedee.mobile_ui.injection.module.ApplicationModule
 import com.threedee.mobile_ui.injection.module.CacheModule
 import com.threedee.mobile_ui.injection.module.DataModule
@@ -25,7 +25,7 @@ import javax.inject.Singleton
         DataModule::class,
         CacheModule::class,
         RemoteModule::class])
-interface ApplicationComponent: AndroidInjector<BufferoosApplication> {
+interface ApplicationComponent: AndroidInjector<ThreeApplication> {
 
     // old way for component builder this is very stable keeping this for reference
     /*@Component.Builder
